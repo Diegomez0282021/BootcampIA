@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Obesidad - ML</title>
+<header class="main-header">
+  <div class="header-content">
+    <img src="https://i.pravatar.cc/40" alt="Avatar" class="avatar">
+    <div class="header-text">
+      <span class="welcome">Bienvenido, Usuario</span>
+      <h1 class="page-title">Portal Obesidad - ML</h1>
+    </div>
+  </div>
+</header>
+<style>
+    .main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #0077cc;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar {
+  margin-top: 70px; /* Match header height */
+}
+.main {
+  margin-top: 70px; /* Match header height */
+}
+.welcome {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.page-title {
+  font-size: 1.2rem;
+  color: #0077cc;
+  margin: 0;
+}
+
+/* Push body content down to avoid overlap */
+body {
+  margin-top: 70px; /* Adjust based on header height */
+}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-right: 2px solid #ccc;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    transition: width 0.3s ease;
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+
+  .sidebar a {
+    padding: 15px 20px;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .sidebar a:hover {
+    background: #f0f0f0;
+    color: #005599;
+    cursor: pointer;
+  }
+
+  .sidebar a.active-link {
+    background: #e6f3ff;
+    color: #005599;
+    border-left: 4px solid #0077cc;
+  }
+
+  /* Main content */
+  .main {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+    border-left: 2px solid #ccc;
+  }
+
+  .section {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+  }
+
+  .section.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive menu */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 0;
+      border-right: none;
+      border-bottom: 2px solid #ccc;
+    }
+    .sidebar h2 {
+      display: none;
+    }
+    .sidebar a {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      white-space: nowrap;
+      border-bottom: none;
+      border-right: 1px solid #eee;
+    }
+    .sidebar a.active-link {
+      border-left: none;
+      border-bottom: 4px solid #0077cc;
+    }
+    .main {
+      padding: 15px;
+      border-left: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Menú</h2>
+    <a onclick="showSection('inicio', this)" class="active-link">Inicio</a>
+    <a onclick="showSection('ciclo', this)">Ciclo de vida de un proyecto de ML</a>
+    <a onclick="showSection('contexto', this)">Selección del contexto y problema</a>
+    <a onclick="showSection('analisis', this)">Análisis exploratorio de datos</a>
+    <a onclick="showSection('pdf', this)">Generar PDF final</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <div id="inicio" class="section active">
+      <h1>Inicio</h1>
+      <p>Bienvenido al portal interactivo sobre obesidad y machine learning. Usa el menú para navegar entre secciones.</p>
+    </div>
+
+ <div id="ciclo" class="section">
+  <h1>Ciclo de vida de un proyecto de ML</h1>
+  <p>Video explicativo sobre el dataset de obesidad</p>
+
+  <div style="
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-top: 15px;
+  ">
+    <iframe 
+      src="https://www.youtube-nocookie.com/embed/jsgK2uuAh6w" 
+      title="Ciclo de vida de un modelo de ML"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      "
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+    <div id="contexto" class="section">
+      <h1>Selección del contexto y problema</h1>
+      <p>Contenido próximamente...</p>
+    </div>
+
+    <div id="analisis" class="section">
+      <h1>Análisis exploratorio de datos</h1>
+      <p>
+    En esta sección puedes ver el análisis exploratorio detallado hecho en google colab notebook.  
+    Haz clic en el siguiente enlace para acceder:
+  </p>
+  <a href="https://colab.research.google.com/drive/1eNosl4dBdGDJehlBzuTXooGsVtuLCk0T#scrollTo=UPpnUCEDqUPj" target="_blank" 
+     style="
+       display: inline-block;
+       padding: 12px 18px;
+       background: linear-gradient(90deg, #0077cc, #00aaff);
+       color: #fff;
+       text-decoration: none;
+       font-weight: bold;
+       border-radius: 6px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+       transition: transform 0.2s, box-shadow 0.2s;
+     "
+     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)';"
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+    📊 Ver Análisis Completo
+  </a>
+    </div>
+
+    <div id="pdf" class="section">
+  <h1>Generar PDF final</h1>
+  <p>Haz clic en el siguiente botón para descargar todo el contenido en formato PDF:</p>
+  
+  <a onclick="generatePDF()" 
+     style="
+       display: inline-block;
+       padding: 12px 18px;
+       background: linear-gradient(90deg, #0077cc, #00aaff);
+       color: #fff;
+       text-decoration: none;
+       font-weight: bold;
+       border-radius: 6px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+       transition: transform 0.2s, box-shadow 0.2s;
+       cursor: pointer;
+     "
+     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)';"
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+    📄 Generar PDF Final
+  </a>
+</div>
+
+<!-- Include html2pdf.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+function generatePDF() {
+  const sections = document.querySelectorAll('.section');
+  let allContent = '';
+  sections.forEach(sec => {
+    allContent += `<h1>${sec.querySelector('h1').innerText}</h1>`;
+    allContent += sec.innerHTML.replace(/<h1>.*<\/h1>/, '');
+    allContent += '<hr>';
+  });
+
+  const pdfContainer = document.createElement('div');
+  pdfContainer.innerHTML = allContent;
+  pdfContainer.style.fontFamily = "'Segoe UI', sans-serif";
+
+  const opt = {
+    margin:       0.5,
+    filename:     'contenido_completo.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  html2pdf().from(pdfContainer).set(opt).save();
+}
+</script>
+
+
+
+<script>
+function showSection(sectionId, element) {
+  // Hide all sections
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(sectionId).classList.add('active');
+
+  // Remove active class from all menu items
+  document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active-link'));
+
+  // Add active class to the clicked one
+  element.classList.add('active-link');
+}
+</script>
+
+</body>
+</html>
