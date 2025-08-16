@@ -258,9 +258,29 @@ body {
 
     <div id="pdf" class="section">
   <h1>Generar PDF final</h1>
-  <p>Haz clic en el siguiente botón para descargar todo el contenido en formato PDF:</p>
+  <p>Haz clic en el siguiente botón para descargar el documento:</p>
+
+  <a href="/files/Proyecto_final_IA.docx" download
+     style="
+       display: inline-block;
+       padding: 12px 18px;
+       background: linear-gradient(90deg, #0077cc, #00aaff);
+       color: #fff;
+       text-decoration: none;
+       font-weight: bold;
+       border-radius: 6px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+       transition: transform 0.2s, box-shadow 0.2s;
+       cursor: pointer;
+     "
+     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)';"
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+    📄 Descargar PDF Final
+  </a>
+</div>
+
   
-  <a onclick="generatePDF()" 
+<!--  <a onclick="generatePDF()" 
      style="
        display: inline-block;
        padding: 12px 18px;
@@ -276,7 +296,7 @@ body {
      onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)';"
      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
     📄 Generar PDF Final
-  </a>
+  </a>-->
 </div>
 
 <!-- Include html2pdf.js -->
