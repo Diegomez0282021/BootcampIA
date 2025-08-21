@@ -142,7 +142,22 @@ body {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+.section p {
+  text-align: justify;      /* Align text to both sides */
+  /*text-indent: 2em; */        /* Indent first line */
+  line-height: 1.6;         /* More space between lines */
+  margin-bottom: 1em;       /* Space between paragraphs */
+}
+.section ul, 
+.section ol {
+  padding-left: 2em;       /* keep indentation for bullets/numbers */
+}
 
+.section li {
+  text-align: justify;     /* justify list text */
+  line-height: 1.6;        /* nice spacing */
+  margin-bottom: 0.5em;    /* little gap between items */
+}
   /* Responsive menu */
   @media (max-width: 768px) {
     body {
@@ -194,7 +209,38 @@ body {
   <div class="main">
     <div id="inicio" class="section active">
       <h1>Inicio</h1>
-      <p>Bienvenido al portal interactivo sobre obesidad y machine learning. Usa el menú para navegar entre secciones.</p>
+      <p>
+          Este proyecto desarrolla un análisis exploratorio de datos (EDA) sobre el conjunto de datos “Obesity or CVD Risk – Classify/Regressor/Cluster”, 
+          disponible en la plataforma Kaggle. El propósito principal es identificar y analizar patrones y relaciones entre variables asociadas a hábitos de vida, 
+          características demográficas y factores de riesgo vinculados a la obesidad y a las enfermedades cardiovasculares.</p>
+          <p>
+          El conjunto de datos analizado contiene 2.111 registros y 17 atributos relacionados con variables antropométricas, demográficas y de estilo de vida. Está diseñado para tareas de clasificación orientadas a predecir el tipo de obesidad de una persona a partir de variables como: 
+          Edad, género, peso, altura, Consumo de calorías, actividad física, tiempo en pantalla, Medio de transporte, hidratación, antecedentes familiares</p>
+          
+      <p>El análisis contempla la inspección inicial de la información, la limpieza de datos, la detección y tratamiento de valores nulos, duplicados, 
+      así como la normalización de variables cuando es pertinente. Posteriormente, se abordan visualizaciones univariadas y bivariadas que 
+      permiten examinar tanto la distribución de variables individuales como las relaciones entre pares de variables relevantes. </p>
+      
+      <p>También se calcula las correlaciones para identificar asociaciones estadísticamente significativas, y se aplican técnicas como análisis de componentes principales (PCA) 
+      para la identificación de posibles perfiles de riesgo.</p>
+      
+      <p> Los hallazgos obtenidos permiten describir de manera clara y visual cómo se comportan los diferentes factores analizados, 
+      aportando información valiosa para la comprensión de las relaciones entre el estilo de vida y la salud cardiovascular. </p>
+      Los principales hallazgos incluyen:</p>
+ <ul>
+      <li>
+      <b>Prevalencia:</b> La obesidad tipo III fue la categoría más frecuente (32%), seguida de peso normal (25%)</li>
+<li>
+     <b>Factores clave:</b> Peso, altura y edad mostraron mayor poder predictivo (importancia >0.8)</li>
+<li><b>Hábitos protectores:</b> Mayor actividad física (r=-0.42, p<0.01) y consumo de agua (r=-0.35, p<0.05) se asociaron con menor IMC</li>
+<li>
+     <b>Movilidad:</b> 68% usa transporte público; la movilidad activa disminuye con mayor IMC.</p></li></ul>
+
+      <p> Y el análisis de los resultados obtenidos nos sugieren que: 
+      La obesidad severa es altamente prevalente y multifactorial.
+      Factores físicos y hábitos de vida interactúan de forma compleja.
+      No existe un patrón único explicativo, se requiere un enfoque integral.
+      Se recomienda implementar programas preventivos, educativos y de seguimiento médico.</p>
     </div>
 
  <div id="ciclo" class="section">
