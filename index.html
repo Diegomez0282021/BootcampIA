@@ -335,7 +335,7 @@ button.btn {
 }
 
 
-    footer {
+   footer {
       text-align: center;
       padding: 15px;
       background: #fff;
@@ -343,6 +343,26 @@ button.btn {
       border-top: 1px solid #ddd;
       margin-top: 20px;
     }
+
+/* footer a {
+  color: #ffdd55;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+} */
+
+/* #contact-info {
+  display: none;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+#contact-info.show {
+  display: block;
+} */
+
 .panel img.step-image {
   max-width: 90%;
   height: auto;
@@ -510,11 +530,9 @@ button.btn {
 /* Video styling */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-top: 1rem;
+  width: 100%;
+  padding-bottom: 56.25%; /* keeps 16:9 ratio */
+  margin-bottom: 30px;   /* ✅ adds space under video */
 }
 
 .video-container iframe {
@@ -566,8 +584,8 @@ button.btn {
 
   <nav>
     <a href="#inicio" class="active" onclick="showSection('inicio', this)">🏠 Inicio</a>
-    <a href="#ciclo" onclick="showSection('ciclo', this)">🔄 Ciclo de vida</a>
     <a href="#contexto" onclick="showSection('contexto', this)">📌 Contexto</a>
+    <a href="#ciclo" onclick="showSection('ciclo', this)">🔄 Ciclo de vida</a>
     <a href="#analisis" onclick="showSection('analisis', this)">📊 Análisis</a>
     <a href="#pdf" onclick="showSection('pdf', this)">📄 PDF</a>
     <a href="#interactiva" onclick="showSection('interactiva', this)">🖱️ Sección Interactiva</a>
@@ -641,9 +659,7 @@ button.btn {
         <div class="meta">🎯 Objetivo claro • 🎚️ Tipo de tarea (clasificación/regresión) • 📏 Métrica de éxito</div>
         <ul>
           <li>En esta fase se debe determinar claramente qué se quiere lograr con el modelo, se evalúa si el problema es adecuado para ser abordado con ML y si se dispone de datos suficientes y de calidad. 
-            Responde a la pregunta: ¿Qué queremos resolver?</li>
-          <li>Traduce a un problema ML y define <b>métricas</b> (AUC, F1, RMSE).</li>
-        
+            Responde a la pregunta: ¿Qué queremos resolver?</li>        
         </ul>
       </article>
       <!-- 1 -->
@@ -655,7 +671,7 @@ button.btn {
          
           En el proyecto de predicción de obesidad, la recolección de datos se realizó de la siguiente manera:
          <li>Fuente de datos: Se utilizaron dos conjuntos de datos en formato CSV:
-         <b> ObesityDataSet.csv, train.csv</b>
+         <b> ObesityDataSet.csv, train.csv, test.csv</b>
           <li>Estructura de los datos: El dataset incluye 17 columnas con variables como:
           <li>Demográficas: Gender, Age, Height, Weight
           <li>Hábitos alimenticios: FAVC, FCVC, NCP, CAEC, CALC, CH2O o	Actividad física: FAF
@@ -760,8 +776,7 @@ button.btn {
 
     <h4 style="color:#005599; margin-top:14px;">✅ Conclusión</h4>
     <p>El EDA permite <b>construir hipótesis</b> sobre los factores que influyen en la obesidad y preparar 
-    la base para la <b>selección de características</b> y el <b>modelado</b>. En este dataset, el análisis inicial 
-    revela que <b>hábitos alimenticios y de ejercicio</b> tienen una fuerte relación con la categoría de obesidad.</p>
+    la base para la <b>selección de características</b> y el <b>modelado</b>.
   </div>
 </article>
 
@@ -777,7 +792,7 @@ button.btn {
               line-height:1.6;">
 
     <p><b>INGENIERÍA DE MODELO:</b> En este proyecto se aplican modelos de <b>clasificación supervisada</b> 
-      (<i>Regresión Logística, Random Forest, Árboles de decisión, XGBoost y Redes Neuronales</i>) 
+      (<i>Regresión Logística, Random Forest, XGBoost</i>) 
       para predecir el nivel de obesidad o riesgo cardiovascular. 
       Además, se explora <b>clustering no supervisado</b> (K-Means, DBSCAN) 
       para identificar perfiles de riesgo similares.</p>
@@ -802,9 +817,6 @@ button.btn {
       <li>Métricas: <b>Accuracy, Precision, Recall, F1-Score</b>.</li>
       <li>Ajuste de hiperparámetros con <b>Grid Search</b> o <b>Random Search</b>.</li>
     </ul>
-
-    <h4 style="color:#005599; margin-top:14px;">🔍 Interpretabilidad</h4>
-    <p>Se incorporan técnicas como <b>SHAP</b> o <b>Permutation Importance</b> para entender qué factores influyen más en la predicción.</p>
 
     <p style="margin-top:12px;"><b>✅ En conclusión:</b> la ingeniería del modelo combina clasificación y segmentación con un enfoque robusto en la calidad de los datos y la interpretabilidad, lo que permite no solo <b>predecir riesgos con precisión</b>, sino también <b>identificar hábitos clave</b> que impactan en la obesidad y las enfermedades cardiovasculares.</p>
   </div>
@@ -865,9 +877,9 @@ button.btn {
 
     <h4 style="color:#005599; margin-top:14px;">⚙️ ¿Cómo se haría el despliegue en este caso?</h4>
     <ul style="list-style:none; padding:0;">
-      <li>✔️ Guardamos el modelo ya entrenado.</li>
-      <li>✔️ Lo conectamos a una <b>calculadora web</b> (como el simulador), donde el usuario ingresa: peso, altura, ejercicio, alimentación.</li>
-      <li>✔️ La aplicación muestra si tiene <b>bajo riesgo, riesgo moderado o alto riesgo</b>.</li>
+      <li>Guardamos el modelo ya entrenado.</li>
+      <li>Lo conectamos a una <b>calculadora web</b> (como el simulador), donde el usuario ingresa: peso, altura, ejercicio, alimentación.</li>
+      <li>La aplicación muestra si tiene <b>bajo riesgo, riesgo moderado o alto riesgo</b>.</li>
     </ul>
 
     <h4 style="color:#005599; margin-top:14px;">💡 ¿Por qué esto ya cuenta como despliegue?</h4>
@@ -916,22 +928,24 @@ button.btn {
 
     </div>
 <div class="nav-buttons">
-  <button class="btn prev">⬅️ Anterior</button>
-  <button class="btn toggle-video">🎥 Ver/Ocultar video</button>
-  <button class="btn next">Siguiente ➡️</button>
+  <button id="ml-prev" class="btn">⬅️ Anterior</button>
+  <button id="ml-next" class="btn">➡️ Siguiente</button>
+  <!-- <button id="ml-video-toggle" class="btn">🎥 Ver video</button> -->
+   
 </div>
+
 
     <!-- <div class="controls">
       <button class="btn" id="ml-prev">← Anterior</button>
       <button class="btn" id="ml-next">Siguiente →</button>
     </div> -->
 
-    <div class="video-toggle">
+    <!-- <div class="video-toggle">
       <button class="btn" id="ml-video-toggle">🎥 Ver/ocultar video explicativo</button>
       <div class="video-wrap" id="ml-video-wrap">
         <iframe class="video" src="https://www.youtube-nocookie.com/embed/jsgK2uuAh6w" allowfullscreen></iframe>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -1024,9 +1038,9 @@ button.btn {
       <p>Haz clic para previsualizar o descargar el documento:</p>
       <button class="btn" onclick="togglePreview()">👁️ Ver / Ocultar PDF</button>
        <div class="pdf-preview" id="pdfPreview" style="display:none; margin:1rem 0;">
-      <iframe src="/files/Proyecto_final_IA.pdf" width="100%" height="500px"></iframe>
+      <iframe src="/files/PROYECTO FINAL IA - ANALISIS OBESIDAD.pdf" width="100%" height="500px"></iframe>
     </div>
-      <a href="/files/Proyecto_final_IA.pdf" download class="btn">📄 Descargar PDF Final</a>
+      <a href="/files/PROYECTO FINAL IA - ANALISIS OBESIDAD.pdf" download class="btn">📄 Descargar PDF Final</a>
     
       
     </div>
@@ -1104,11 +1118,10 @@ button.btn {
 
   <!-- Video Box (right side) -->
   <div class="interactive-box video-box">
-    <h3>🎥 Video Explicativo</h3>
-    <p>Mira este video para entender mejor los riesgos de la obesidad y cómo influyen los hábitos de vida.</p>
+    <h3>🎥 Mensaje Final</h3>
     <div class="video-container">
       <iframe 
-        src="https://www.youtube-nocookie.com/embed/jsgK2uuAh6w" 
+      src="https://www.youtube-nocookie.com/embed/4xrpvdgRqrI" 
         frameborder="0" 
         allowfullscreen>
       </iframe>
@@ -1125,9 +1138,10 @@ button.btn {
 
   </main>
 
-  <footer>
-    &copy; 2025 Portal Obesidad - ML | Proyecto académico
-  </footer>
+<footer>
+  <p>© 2025 Proyecto Obesidad - Todos los derechos reservados.</p>
+</footer>
+
 
   <script>
     function showSection(id, element) {
@@ -1194,115 +1208,126 @@ function calcularRiesgo() {
 
   document.getElementById("resultadoRiesgo").innerText = `Resultado: ${riesgo}`;
 }
-(function () {
-    const steps = Array.from(document.querySelectorAll('#ciclo .step'));
-    const panels = Array.from(document.querySelectorAll('#ciclo .panel'));
-    const progress = document.getElementById('ml-progress');
-    const prevBtn = document.getElementById('ml-prev');
-    const nextBtn = document.getElementById('ml-next');
-    const videoToggle = document.getElementById('ml-video-toggle');
-    const videoWrap = document.getElementById('ml-video-wrap');
-    const total = steps.length;
-    let current = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll("#ciclo .step");
+  const panels = document.querySelectorAll("#ciclo .panel");
+  const progress = document.getElementById("ml-progress");
+  const prevBtn = document.getElementById("ml-prev");
+  const nextBtn = document.getElementById("ml-next");
+  // const videoToggle = document.getElementById("ml-video-toggle");
+  // const videoWrap = document.getElementById("ml-video-wrap");
 
-   function updateUI(index) {
-  current = Math.max(0, Math.min(total - 1, index));
-  steps.forEach(s => s.classList.remove('active'));
-  panels.forEach(p => p.classList.remove('active'));
-  steps[current].classList.add('active');
-  panels[current].classList.add('active');
-  progress.style.width = ((current) / (total - 1)) * 100 + '%';
-}
-    // Click on steps
-    steps.forEach((stepEl, i) => {
-      stepEl.addEventListener('click', () => updateUI(i));
-      stepEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateUI(i); }
-      });
-    });
+  let current = 0;
 
-    // Prev/Next
-    prevBtn.addEventListener('click', () => updateUI(current - 1));
-    nextBtn.addEventListener('click', () => updateUI(current + 1));
+  function updateUI(index) {
+    if (index < 0 || index >= steps.length) return;
+    current = index;
+    steps.forEach(s => s.classList.remove("active"));
+    panels.forEach(p => p.classList.remove("active"));
+    steps[current].classList.add("active");
+    panels[current].classList.add("active");
+    progress.style.width = (current / (steps.length - 1)) * 100 + "%";
 
-    // Keyboard arrows globally when ciclo is visible
-    document.addEventListener('keydown', (e) => {
-      const isVisible = document.getElementById('ciclo').classList.contains('active');
-      if (!isVisible) return;
-      if (e.key === 'ArrowRight') updateUI(current + 1);
-      if (e.key === 'ArrowLeft')  updateUI(current - 1);
-    });
+    // disable buttons at limits
+    prevBtn.disabled = (current === 0);
+    nextBtn.disabled = (current === steps.length - 1);
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-    // Toggle video
-    // videoToggle.addEventListener('click', () => {
-    //   videoWrap.classList.toggle('open');
-    // });
+  // Event listeners
+  prevBtn.addEventListener("click", () => updateUI(current - 1));
+  nextBtn.addEventListener("click", () => updateUI(current + 1));
+  // videoToggle.addEventListener("click", () => {
+  //   videoWrap.classList.toggle("open");
+  //   videoToggle.textContent = videoWrap.classList.contains("open")
+  //     ? "🎥 Ocultar video"
+  //     : "🎥 Ver video";
+  // });
 
-    // Initialize
-    updateUI(0);
-  })();
+  // Step click
+  steps.forEach((stepEl, i) => {
+    stepEl.addEventListener("click", () => updateUI(i));
+  });
+
+  // Initialize
+  updateUI(0);
+});
 
 
 
   
-document.addEventListener("DOMContentLoaded", () => {
-  const panels = document.querySelectorAll(".panel");
-  const prevBtn = document.querySelector(".nav-buttons .prev");
-  const nextBtn = document.querySelector(".nav-buttons .next");
-  const toggleVideoBtn = document.querySelector(".nav-buttons .toggle-video");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const panels = document.querySelectorAll(".panel");
+//   const prevBtn = document.querySelector(".nav-buttons .prev");
+//   const nextBtn = document.querySelector(".nav-buttons .next");
+//   const toggleVideoBtn = document.querySelector(".nav-buttons .toggle-video");
 
-  let currentStep = 0; // start at first panel
+//   let currentStep = 0; // start at first panel
 
-  function showStep(stepIndex) {
-    panels.forEach((panel, i) => {
-      panel.style.display = (i === stepIndex) ? "block" : "none";
-    });
-    currentStep = stepIndex;
-    // disable prev at first step, next at last step
-    prevBtn.disabled = (currentStep === 0);
-    nextBtn.disabled = (currentStep === panels.length - 1);
-  }
+//   function showStep(stepIndex) {
+//     panels.forEach((panel, i) => {
+//       panel.style.display = (i === stepIndex) ? "block" : "none";
+//     });
+//     currentStep = stepIndex;
+//     // disable prev at first step, next at last step
+//     prevBtn.disabled = (currentStep === 0);
+//     nextBtn.disabled = (currentStep === panels.length - 1);
+//   }
 
-  // Init first step
-  showStep(currentStep);
+//   // Init first step
+//   showStep(currentStep);
 
-  // Event listeners
-  prevBtn.addEventListener("click", () => {
-    if (currentStep > 0) {
-      showStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  });
+//   // Event listeners
+//   prevBtn.addEventListener("click", () => {
+//     if (currentStep > 0) {
+//       showStep(currentStep - 1);
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     }
+//   });
 
-  nextBtn.addEventListener("click", () => {
-    if (currentStep < panels.length - 1) {
-      showStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  });
+//   nextBtn.addEventListener("click", () => {
+//     if (currentStep < panels.length - 1) {
+//       showStep(currentStep + 1);
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     }
+//   });
 
-  toggleVideoBtn.addEventListener("click", () => {
-    const currentPanel = panels[currentStep];
-    const video = currentPanel.querySelector("video, iframe");
-    if (video) {
-      if (video.style.display === "none" || video.style.display === "") {
-        video.style.display = "block";
-        toggleVideoBtn.textContent = "🎥 Ocultar video";
-      } else {
-        video.style.display = "none";
-        toggleVideoBtn.textContent = "🎥 Ver video";
-      }
-    } else {
-      alert("No hay video en este paso.");
-    }
-  });
-});
+//   toggleVideoBtn.addEventListener("click", () => {
+//     const currentPanel = panels[currentStep];
+//     const video = currentPanel.querySelector("video, iframe");
+//     if (video) {
+//       if (video.style.display === "none" || video.style.display === "") {
+//         video.style.display = "block";
+//         toggleVideoBtn.textContent = "🎥 Ocultar video";
+//       } else {
+//         video.style.display = "none";
+//         toggleVideoBtn.textContent = "🎥 Ver video";
+//       }
+//     } else {
+//       alert("No hay video en este paso.");
+//     }
+//   });
+// });
 
 function togglePreview() {
     const preview = document.getElementById("pdfPreview");
     preview.style.display = (preview.style.display === "none") ? "block" : "none";
   }
   
+
+//   document.addEventListener("DOMContentLoaded", () => {
+//   const toggleBtn = document.getElementById("contact-toggle");
+//   const contactInfo = document.getElementById("contact-info");
+
+//   toggleBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     contactInfo.classList.toggle("show");
+//     toggleBtn.textContent = contactInfo.classList.contains("show")
+//       ? "❌ Cerrar contacto"
+//       : "📩 Contáctenos";
+//   });
+// });
+
   </script>
 </body>
 </html>
